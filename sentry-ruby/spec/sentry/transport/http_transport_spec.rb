@@ -85,7 +85,7 @@ RSpec.describe Sentry::HTTPTransport do
     end
 
     describe "ssl configurations" do
-      it "has the corrent default" do
+      it "has the correct default" do
         stub_request(fake_response) do |_, http_obj|
           expect(http_obj.verify_mode).to eq(1)
           expect(http_obj.ca_file).to eq(nil)

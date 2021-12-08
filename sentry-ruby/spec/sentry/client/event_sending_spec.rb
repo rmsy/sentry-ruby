@@ -368,7 +368,7 @@ RSpec.describe Sentry::Client do
           expect(subject).to receive(:send_event)
         end
 
-        it "swallows Redis related error and send the event synchronizely" do
+        it "swallows Redis related error and send the event synchronously" do
           class Redis
             class ConnectionError < StandardError; end
           end

@@ -260,7 +260,7 @@ RSpec.describe Sentry::Transaction do
           )
         end
 
-        it "uses the genereted rate for sampling (positive)" do
+        it "uses the generated rate for sampling (positive)" do
           expect(Sentry.configuration.logger).to receive(:debug).exactly(3).and_call_original
 
           subject = described_class.new(hub: Sentry.get_current_hub)
@@ -283,7 +283,7 @@ RSpec.describe Sentry::Transaction do
           )
         end
 
-        it "uses the genereted rate for sampling (negative)" do
+        it "uses the generated rate for sampling (negative)" do
           expect(Sentry.configuration.logger).to receive(:debug).exactly(2).and_call_original
 
           subject = described_class.new(hub: Sentry.get_current_hub)

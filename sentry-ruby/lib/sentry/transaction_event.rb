@@ -4,17 +4,17 @@ module Sentry
   class TransactionEvent < Event
     TYPE = "transaction"
 
-    SERIALIZEABLE_ATTRIBUTES = %i(
+    SERIALIZABLE_ATTRIBUTES = %i(
       event_id level timestamp start_timestamp
       release environment server_name modules
       user tags contexts extra
       transaction platform sdk type
     )
 
-    WRITER_ATTRIBUTES = SERIALIZEABLE_ATTRIBUTES - %i(type timestamp start_timestamp level)
+    WRITER_ATTRIBUTES = SERIALIZABLE_ATTRIBUTES - %i(type timestamp start_timestamp level)
 
     attr_writer(*WRITER_ATTRIBUTES)
-    attr_reader(*SERIALIZEABLE_ATTRIBUTES)
+    attr_reader(*SERIALIZABLE_ATTRIBUTES)
 
     attr_accessor :spans
 

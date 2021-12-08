@@ -81,7 +81,7 @@ RSpec.describe Sentry::Transport do
         3.times { subject.record_lost_event(:queue_overflow, 'transaction') }
       end
 
-      it "incudes client report in envelope" do
+      it "includes client report in envelope" do
         Timecop.travel(Time.now + 90) do
           result = subject.encode(event.to_hash)
 

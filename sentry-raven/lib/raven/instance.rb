@@ -77,7 +77,7 @@ module Raven
     # Send an event to the configured Sentry server
     #
     # @example
-    #   evt = Raven::Event.new(:message => "An errore)
+    #   evt = Raven::Event.new(:message => "An error")
     #   Raven.send_event(evt)
     def send_event(event, hint = nil)
       client.send_event(event, hint)

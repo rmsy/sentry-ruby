@@ -46,7 +46,7 @@ module Raven
     # The Faraday adapter to be used. Will default to Net::HTTP when not set.
     attr_accessor :http_adapter
 
-    # A Proc yeilding the faraday builder allowing for further configuration
+    # A Proc yielding the faraday builder allowing for further configuration
     # of the faraday adapter
     attr_accessor :faraday_builder
 

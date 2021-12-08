@@ -9,7 +9,7 @@ module Sentry
       "-?([01])?" +  # sampled
       "[ \t]*$"  # whitespace
     )
-    UNLABELD_NAME = "<unlabeled transaction>".freeze
+    UNLABELED_NAME = "<unlabeled transaction>".freeze
     MESSAGE_PREFIX = "[Tracing]"
 
     include LoggingHelper
@@ -128,7 +128,7 @@ module Sentry
       super() # Span#finish doesn't take arguments
 
       if @name.nil?
-        @name = UNLABELD_NAME
+        @name = UNLABELED_NAME
       end
 
       unless @sampled || @parent_sampled

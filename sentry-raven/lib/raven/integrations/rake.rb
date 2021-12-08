@@ -4,7 +4,7 @@ require 'raven/integrations/tasks'
 
 module Rake
   class Application
-    alias orig_display_error_messsage display_error_message
+    alias orig_display_error_message display_error_message
     def display_error_message(ex)
       Raven.capture_exception(
         ex,
@@ -12,7 +12,7 @@ module Rake
         :logger => 'rake',
         :tags => { 'rake_task' => top_level_tasks.join(' ') }
       )
-      orig_display_error_messsage(ex)
+      orig_display_error_message(ex)
     end
   end
 end

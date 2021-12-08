@@ -426,7 +426,7 @@ RSpec.describe Raven::Event do
   end
 
   describe ".from_exception" do
-    it "proceses string message correctly" do
+    it "processes string message correctly" do
       event = Raven::Event.from_exception(ExceptionWithContext.new, message: "MSG", **essential_options)
       expect(event.message).to eq("MSG")
     end

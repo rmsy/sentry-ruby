@@ -20,7 +20,7 @@ RSpec.describe Sentry::Sidekiq do
   end
 
   after do
-    # those test jobs will go into the real Redis and be visiable to other sidekiq processes
+    # those test jobs will go into the real Redis and be visible to other sidekiq processes
     # this can affect local testing and development, so we should clear them after each test
     retry_set.clear
     queue.clear

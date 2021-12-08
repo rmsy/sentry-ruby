@@ -157,7 +157,7 @@ def make_basic_app
   ActiveSupport::Dependencies.autoload_once_paths = []
   ActiveSupport::Dependencies.autoload_paths = []
 
-  # there are a few Rails initializers/finializers that register hook to the executor
+  # there are a few Rails initializers/finalizers that register hook to the executor
   # because the callbacks are stored inside the `ActiveSupport::Executor` class instead of an instance
   # the callbacks duplicate after each time we initialize the application and cause issues when they're executed
   ActiveSupport::Executor.reset_callbacks(:run)
@@ -213,7 +213,7 @@ def make_basic_app
 
   app.initialize!
 
-  Post.all.to_a # to run the sqlte version query first
+  Post.all.to_a # to run the sqlite version query first
   Sentry.get_current_scope.clear_breadcrumbs # and then clear breadcrumbs in case the above query is recorded
 
   Rails.application = app

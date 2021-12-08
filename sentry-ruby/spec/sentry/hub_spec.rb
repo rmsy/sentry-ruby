@@ -52,7 +52,7 @@ RSpec.describe Sentry::Hub do
         expect(event.level).to eq(:info)
       end
 
-      it "merges the contexts/tags/extrac with what the scope already has" do
+      it "merges the contexts/tags/extras with what the scope already has" do
         scope.set_tags(old_tag: true)
         scope.set_contexts({ character: { name: "John", age: 25 }})
         scope.set_extras(old_extra: true)
@@ -257,10 +257,10 @@ RSpec.describe Sentry::Hub do
         inner_event = subject.capture_message("Inner event")
       end
 
-      outter_event = subject.capture_message("Outter event")
+      outer_event = subject.capture_message("Outer event")
 
       expect(inner_event.tags).to eq({ level: 2 })
-      expect(outter_event.tags).to eq({ level: 1 })
+      expect(outer_event.tags).to eq({ level: 1 })
     end
 
     it "doesn't leak data mutation" do
@@ -272,10 +272,10 @@ RSpec.describe Sentry::Hub do
         inner_event = subject.capture_message("Inner event")
       end
 
-      outter_event = subject.capture_message("Outter event")
+      outer_event = subject.capture_message("Outer event")
 
       expect(inner_event.tags).to eq({ level: 2 })
-      expect(outter_event.tags).to eq({ level: 1 })
+      expect(outer_event.tags).to eq({ level: 1 })
     end
   end
 

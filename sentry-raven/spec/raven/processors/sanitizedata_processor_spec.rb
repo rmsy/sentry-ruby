@@ -71,7 +71,7 @@ RSpec.describe Raven::Processor::SanitizeData do
     expect(vars["query_string"]).to match('foo=bar')
   end
 
-  it "filters out hash paird under sensitive keys" do
+  it "filters out hash pairs under sensitive keys" do
     data = {
       'sentry.interfaces.Http' => {
         'data' => {

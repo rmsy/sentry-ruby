@@ -212,7 +212,7 @@ RSpec.describe "rate limiting" do
           {}
         end
 
-        it "doesn't add any rate limites" do
+        it "doesn't add any rate limits" do
           now = Time.now
 
           Timecop.freeze(now) do

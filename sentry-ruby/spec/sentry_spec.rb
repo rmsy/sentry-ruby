@@ -192,7 +192,7 @@ RSpec.describe Sentry do
     end
 
     context "with capture_exception_frame_locals = false (default)" do
-      it "doens't capture local variables" do
+      it "doesn't capture local variables" do
         begin
           1/0
         rescue => e
