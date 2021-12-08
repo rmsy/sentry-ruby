@@ -86,6 +86,7 @@ RSpec.describe Sentry::HTTPTransport do
 
     describe "ssl configurations" do
       it "has the corrent default" do
+        skip 'unsupported on faraday < 1.0'
         stub_request(fake_response) do |_, http_obj|
           expect(http_obj.verify_mode).to eq(1)
           expect(http_obj.ca_file).to eq(nil)
@@ -95,6 +96,7 @@ RSpec.describe Sentry::HTTPTransport do
       end
 
       it "accepts custom ssl_verification configuration" do
+        skip 'unsupported on faraday < 1.0'
         configuration.transport.ssl_verification = false
 
         stub_request(fake_response) do |_, http_obj|
@@ -106,6 +108,7 @@ RSpec.describe Sentry::HTTPTransport do
       end
 
       it "accepts custom ssl_ca_file configuration" do
+        skip 'unsupported on faraday < 1.0'
         configuration.transport.ssl_ca_file = "/tmp/foo"
 
         stub_request(fake_response) do |_, http_obj|
@@ -117,6 +120,8 @@ RSpec.describe Sentry::HTTPTransport do
       end
 
       it "accepts custom ssl configuration" do
+        skip 'unsupported on faraday < 1.0'
+
         configuration.transport.ssl  = { verify: false, ca_file: "/tmp/foo" }
 
         stub_request(fake_response) do |_, http_obj|
